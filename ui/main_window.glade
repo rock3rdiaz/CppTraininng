@@ -5,24 +5,57 @@
   <object class="GtkApplicationWindow" id="main_window">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="window_position">center</property>
+    <property name="default_width">710</property>
+    <property name="default_height">430</property>
+    <property name="gravity">center</property>
+    <property name="show_menubar">False</property>
     <child>
       <object class="GtkLayout" id="main_layout">
         <property name="visible">True</property>
+        <property name="app_paintable">True</property>
         <property name="can_focus">False</property>
         <property name="resize_mode">immediate</property>
+        <property name="hscroll_policy">natural</property>
+        <property name="vscroll_policy">natural</property>
+        <property name="width">0</property>
+        <property name="height">0</property>
         <child>
-          <object class="GtkButton">
-            <property name="label" translatable="yes">button</property>
+          <object class="GtkButton" id="request_button">
+            <property name="label" translatable="yes">Request!</property>
             <property name="width_request">88</property>
             <property name="height_request">34</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
+            <signal name="clicked" handler="main" swapped="no"/>
           </object>
           <packing>
-            <property name="x">68</property>
-            <property name="y">346</property>
+            <property name="x">294</property>
+            <property name="y">378</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkTextView" id="output_textView">
+            <property name="width_request">680</property>
+            <property name="height_request">257</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="x">14</property>
+            <property name="y">109</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="search_entryText">
+            <property name="width_request">676</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="x">15</property>
+            <property name="y">40</property>
           </packing>
         </child>
       </object>
