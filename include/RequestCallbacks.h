@@ -1,3 +1,11 @@
+/**
+ *
+ * A HTTP Requests callback 
+ * 
+ */
+
+
+
 #ifndef BASE_CONTROLLER_H
 #define BASE_CONTROLLER_H
 
@@ -5,10 +13,11 @@
 
 namespace rock3rdiaz {
 
-	class BaseController {
+	class RequestCallbacks {
 
 		public:
 			virtual void onRequestComplete(std::string response) = 0;
+			inline void onRequestError() { std::cout << "request error :(" << std::endl; }
 
 	};
 

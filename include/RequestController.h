@@ -3,27 +3,29 @@
 
 #include <iostream>
 #include <gtkmm.h>
-#include "BaseController.h"
+#include "RequestCallbacks.h"
 #include "NetworkHelper.h"
 
 namespace rock3rdiaz {
 
-	class RequestController : public BaseController {
+	class RequestController : public RequestCallbacks {
 		private:
-			Gtk::Main *pMain;
-			Gtk::Window *pMainWindow;
-			Gtk::Button *pRequestButton;
-			Gtk::TextView *pOutputTextView;
-			Gtk::Entry *pSearchEntryText;
+			Gtk::Main* pMain;
+			Gtk::Window* pMainWindow;
+			Gtk::Button* pRequestButton;
+			Gtk::TextView* pOutputTextView;
+			Gtk::Entry* pSearchEntryText;
 
-			NetworkHelper *pNetworkHelper;
+			NetworkHelper* pNetworkHelper;
 
 			void onRequestButtonClick();
 			void init();
 		public:
-			RequestController(Gtk::Main *main, NetworkHelper *pNetworkHelper);
+			RequestController(Gtk::Main* main, NetworkHelper* pNetworkHelper);
 			virtual ~RequestController();
 			void onRequestComplete(std::string response);
+			inline Gtk::Main* getMain() const { return pMain; }
+			inline Gtk::Window* getMainWindow() const { return pMainWindow; }
 
 	};
 

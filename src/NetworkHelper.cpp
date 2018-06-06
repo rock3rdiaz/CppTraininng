@@ -21,8 +21,9 @@ namespace rock3rdiaz {
 		curl_easy_setopt(curl, CURLOPT_HTTPGET, 1L);
 		curlCode = curl_easy_perform(curl);
 		if(curlCode == CURLE_OK) {
-			std::cout << "response is: " << requestResponse << std::endl;
-			//pBaseController->onRequestComplete(requestResponse);
+			pRequestCallbacks->onRequestComplete(requestResponse);
+		} else {
+			pRequestCallbacks->onRequestError();
 		}
 
 	}
@@ -33,8 +34,8 @@ namespace rock3rdiaz {
 		curlCode = curl_easy_perform(curl);
 	}
 
-	size_t NetworkHelper::requestBodyWriteCallback(char *ptr, size_t size, size_t nmemb, void *userdata) {
-		std::string *p = static_cast<std::string *>(userdata);
+	size_t NetworkHelper::requestBodyWriteCallback(char* ptr, size_t size, size_t nmemb, void* userdata) {
+		std::string* p = static_cast<std::string*>(userdata);
 		int realSize = size * nmemb;
 		
 		for(int i = 0; i < realSize; i++) {
@@ -43,4 +44,9 @@ namespace rock3rdiaz {
     	
 		return realSize;
 	}
+
+	NetworkHelper::~NetworkHelper() {
+		delete this;
+	}
+
 }

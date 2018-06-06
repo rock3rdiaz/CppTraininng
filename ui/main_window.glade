@@ -5,6 +5,7 @@
   <object class="GtkApplicationWindow" id="main_window">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="resizable">False</property>
     <property name="default_width">710</property>
     <property name="default_height">430</property>
     <property name="gravity">center</property>
@@ -14,7 +15,6 @@
         <property name="visible">True</property>
         <property name="app_paintable">True</property>
         <property name="can_focus">False</property>
-        <property name="resize_mode">immediate</property>
         <property name="hscroll_policy">natural</property>
         <property name="vscroll_policy">natural</property>
         <property name="width">0</property>
@@ -40,6 +40,12 @@
             <property name="height_request">257</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="events">GDK_STRUCTURE_MASK | GDK_SCROLL_MASK</property>
+            <property name="resize_mode">immediate</property>
+            <property name="hscroll_policy">natural</property>
+            <property name="vscroll_policy">natural</property>
+            <property name="wrap_mode">word</property>
+            <property name="overwrite">True</property>
           </object>
           <packing>
             <property name="x">14</property>
